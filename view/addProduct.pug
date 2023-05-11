@@ -1,0 +1,20 @@
+extends base
+
+block content
+  if user
+
+    .form.form--table
+      .row.align-content-center
+        .col-md.d-flex.justify-content-center.form--el__addproduct
+          form.form.form__add--product.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+            h2.text-center.form-text
+              | New product*: you must need a Name*, Type* of Party info.
+            .product--info
+              label.mb-0.m-1.form-label.text-wrap(for='productname') Name of Product*:
+              input#productname.form-control.m-1(type='text' required='')
+              label.mb-0.m-1.form-label.text-wrap(for='type') Type of Party*:
+              select#type.form-select.form-control.m-1(required='')
+                option(selected='') Select type
+                each type in typeOf 
+                  option(value=`${type._id}`)=type.name
+            button#addproduct.m-3.btn.btn-info Save

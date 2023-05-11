@@ -1,0 +1,116 @@
+if user 
+  .row.header
+    nav.navbar
+        ul
+          // For Responsive
+          li.icon--res
+            a(href='')
+              i.fa.fa-bars
+          // Useable link in below
+          li.icon--res
+            a(href='/')
+              span Home
+          li
+            a(href='#')
+              i.fa.fa-sitemap
+              span Purchase
+            .sub-menu
+              ul.list
+                li.list-item(style='transition: 0.2s')
+                  a(href='/addPurchase')
+                    i.fa.fa-plus
+                    span Add 
+                li.list-item(style='transition: 0.4s')
+                  a(href='/searchpurchase')
+                    i.fa.fa-search
+                    span Search
+          li
+            a(href='#')
+              i.fa.fa-dollar
+              span Sells
+            .sub-menu
+              ul.list
+                li.list-item(style='transition: 0.2s')
+                  a(href='/addSell')
+                    i.fa.fa-plus
+                    span Add 
+                li.list-item(style='transition: 0.4s')
+                  a(href='/searchSell')
+                    i.fa.fa-search
+                    span Search 
+          li
+            a(href='#')
+              i.fa.fa-diamond
+              span Product
+            .sub-menu
+              ul.list
+                li.list-item(style='transition: 0.2s')
+                  a(href='/addProduct')
+                    i.fa.fa-plus
+                    span Add
+                li.list-item(style='transition: 0.4s')
+                  a(href='/allProduct')
+                    i.fa.fa-search
+                    span Search
+          li
+            a(href='#')
+              i.fa.fa-buysellads
+              span Type of Product
+            .sub-menu
+              ul.list
+                li.list-item(style='transition: 0.2s')
+                  a(href='/addTypeOf')
+                    i.fa.fa-plus
+                    span Add
+                li.list-item(style='transition: 0.4s')
+                  a(href='/searchTypeOf')
+                    i.fa.fa-search
+                    span Search
+          li
+            a(href='#')
+              i.fa.fa-user-circle
+              span User
+            .sub-menu
+              ul.list
+                li.list-item(style='transition: 0.4s')
+                  a(href='/settings')
+                    i.fa.fa-cog
+                    span Settings
+                li.list-item(style='transition: 0.4s')
+                  a.nav__el--logout(href='')
+                    i.fa.fa-sign-out
+                    span Log Out
+
+else 
+  .d-flex.justify-content-center.h-100
+    .user_card.user_card_login
+      // logo
+      .d-flex.justify-content-center
+        .brand_logo_container
+          //- img.brand_logo(src='https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png' alt='Logo')
+          img.brand_logo(src='https://scontent.fcgp7-1.fna.fbcdn.net/v/t39.30808-6/343938094_3513580485631784_2921582903686129138_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHKsVAwymjozSXeU9fRAc364BquPAneDPHgGq48Cd4M8U1NQ-rebEHvqtymxqQR5ZBo_bBBQrV0r8h-Fhzdij0l&_nc_ohc=FP2lpRUCPQgAX_gHcy2&_nc_ht=scontent.fcgp7-1.fna&oh=00_AfAe5_QwvpJBNNfLqTPhKxyplpIfeAkDxQszTyYIPCLMwA&oe=64570B21' alt='Logo')
+      .d-flex.justify-content-center.form_container
+        form
+          .input-group.mb-3
+            .input-group-append
+              span.input-group-text
+                i.fas.fa-user
+            input.form-control.input_user_email(type='text' name='' value='' placeholder='username')
+          .input-group.mb-2
+            .input-group-append
+              span.input-group-text
+                i.fas.fa-key
+            input.form-control.input_password(type='password' name='' value='' placeholder='password')
+          .form-group
+            .custom-control.custom-checkbox
+              input#customControlInline.custom-control-input(type='checkbox')
+              label.custom-control-label(for='customControlInline') Remember me
+          .d-flex.justify-content-center.mt-3.login_container
+            button.btn.login_btn(type='button' name='button')
+              | Login
+      .mt-4
+        .d-flex.justify-content-center.links
+          | Don&apos;t have an account? 
+          a.ml-2(href='#') Sign Up
+        .d-flex.justify-content-center.links
+          a(href='#') Forgot your password?

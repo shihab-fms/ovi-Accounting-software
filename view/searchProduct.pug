@@ -1,0 +1,16 @@
+extends base
+
+block content
+  if user
+    .form.form--table
+      .row.align-content-center
+        .col-md.d-flex.justify-content-center.form--el__search
+          form.form.form__search--product.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+            h2.text-center.form-text#headertext
+              | Search for product information *Date From, *Name of product 
+            .product--info
+              label.mb-0.m-1.form-label.text-wrap(for='from') Date from*:
+              input#from.form-control.m-1(type='date' required='')
+              label.mb-0.m-1.form-label.text-wrap(for='to') Date to*:
+              input#to.form-control.m-1(type='date')
+            button#searchproduct.m-3.btn.btn-danger print

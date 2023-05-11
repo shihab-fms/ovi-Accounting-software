@@ -1,0 +1,28 @@
+extends base
+
+block content 
+  if user
+    .form.form--table
+      .col-sm.d-flex.justify-content-center
+        .form--search__typeOf.form--view
+          h2.text-center.form-text
+            | typeOf: view typeOf history....
+          br.bg-gradient
+          .container-fluid
+            .row.typeOf--view--header.view--header
+              .col-2.p-0
+                label.mb-0.m-1.form-label.text-wrap SL No#
+              .col-6.p-0
+                label.mb-0.m-1.form-label.text-wrap Product type name
+              .col.p-0
+                label.mb-0.form-label.text-wrap Action
+            // Body
+            each typeOf in typeOfs
+              .row.typeOf--view--Data.view--data(data-typeOfid=`${typeOf._id}`)
+                .col-2.p-0
+                  label#sl.mb-0.p-1.form-label.text-wrap=typeOfs.indexOf(typeOf) + 1
+                .col-6.p-0
+                  label#typeof.mb-0.form-label.text-wrap(data-typeOfid=`${typeOf._id}`)=typeOf.name
+                .col.p-0
+                  a.btn.btn-edit.btn-info Edit
+                  a.btn.btn-delete.btn-dark Delete

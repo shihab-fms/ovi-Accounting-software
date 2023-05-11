@@ -1,0 +1,37 @@
+extends base
+
+block content 
+  if user
+    .form.form--table
+      .row.align-content-center
+        .col-md.d-flex.justify-content-center.form--el__addpurchase
+          form.form.form__purchase--add.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+            h2.text-center.form-text
+              | purchase: you must need a Branch, Date, one or more product
+            .purchase--header
+              .purchase--content
+                label.mb-0.m-3.form-label.form-label-date.text-wrap(for='date') Date:
+                input#date.form-control.m-3(type='date' required='')
+            .purchase--body
+              .purchase--content.purchase--content__header
+                label.mb-0.m-3.form-label.text-wrap SL No*              
+                label.mb-0.m-3.form-label.text-wrap Product Name*
+                label.mb-0.m-3.form-label.text-wrap Quantity*
+                label.mb-0.m-3.form-label.text-wrap Rate*
+                label.mb-0.m-3.form-label.text-wrap Amount*
+              .data
+                .purchase--content.purchase--content__body
+                    label.mb-0.m-3.form-label.text-wrap(for='') 1
+                    select#productName.form-select.form-control.m-3(style='width: 25%' name='productName' required='')
+                      option(selected='') Select a Product name
+                      each product in products
+                        option(value=`${product._id}`)=product.name
+                    input#quantity.form-control.m-3(style='width: 23%' type='number' required='' placeholder='product quantity')
+                    input#price.form-control.m-3(style='width: 23%' type='number' required='' placeholder='product price')
+                    input#amount.product__amount.form-control.m-3(style='width: 23%' type='number' required='' placeholder='Amount')
+              .summery--amount  
+                label.amount.mb-0.m-3.from-label.text-wrap Tk. 00000.00
+            button#add--more__product.m-3.btn.btn-primary Add
+            button#remove--last__product.m-3.btn.btn-danger Remove
+            button#add--purchase__submit.m-3.btn.btn-info Save
+

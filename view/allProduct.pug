@@ -1,0 +1,34 @@
+extends base
+
+block content 
+
+  if user
+    .form.form--table
+      .col-sm.d-flex.justify-content-center
+        .form--view.view--product.form_el-allProduct
+          h2.text-center.form-text
+            | View: view Product history....
+          br.bg-gradient
+          .container-fluid
+            .row.view--header
+              .col-1.p-0
+                label.mb-0.m-1.form-label.text-wrap SL No#
+              .col-5.p-0
+                label.mb-0.form-label.text-wrap Name of Product*
+              .col-3.p-0
+                label.mb-0.form-label.text-wrap Types of product*
+              .col.p-0
+                label.mb-0.form-label.text-wrap Action*
+            // Body
+            each product in products 
+              .row.view--data
+                .col-1.p-0
+                  label#sl.mb-0.form-label.text-wrap=products.indexOf(product) + 1
+                .col-5.p-0
+                  label#product.mb-0.form-label.text-wrap(data-productid=`${product._id}`)=product.name
+                .col-3.p-0
+                  label#typeOf.mb-0.form-label.text-wrap(data-productypetid=`${product.typeOf[0]._id}`)=product.typeOf[0].slug
+                .col.p-0
+                  button.btn.btn-info.btn-edit Edit
+                  button.btn.btn-primary.btn-search Search
+                  button.btn.btn-dark.btn-delete Delete

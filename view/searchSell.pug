@@ -1,0 +1,33 @@
+extends base
+
+block content 
+  if user
+    .form.form--table
+      .col-sm.d-flex.justify-content-center
+        .form--search__sell.form--view
+          h2.text-center.form-text
+            | Sell: view sell history....
+          br.bg-gradient
+          .container-fluid
+            .row.sell--view--header.view--header
+              .col-1.p-0
+                label.mb-0.m-1.form-label.text-wrap SL No#
+              .col-3.p-0
+                label.mb-0.m-1.form-label.text-wrap Date
+              .col-3.p-0
+                label.mb-0.form-label.text-wrap Amount Tk.
+              .col.p-0
+                label.mb-0.form-label.text-wrap Action
+            // Body
+            each sell in sells
+              .row.sell--view--Data.view--data(data-sellid=`${sell._id}`)
+                .col-1.p-0
+                  label#sl.mb-0.p-1.form-label.text-wrap=sells.indexOf(sell) + 1
+                .col-3.p-0
+                  label#date.mb-0.form-label.text-wrap=sell.date 
+                .col-3.p-0
+                  label#amount.mb-0.form-label.text-wrap=`${sell.summeryAmount} Tk.`
+                .col.p-0
+                  a.btn.btn-edit.btn-info Edit
+                  a.btn.btn-print.btn-primary Print
+                  a.btn.btn-delete.btn-dark Delete

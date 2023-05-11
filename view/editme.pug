@@ -1,0 +1,48 @@
+extends base 
+
+block content 
+
+  if user
+    .d-flex.justify-content-center.h-100
+      .user_card
+        // logo
+        .d-flex.justify-content-center
+          .brand_logo_container
+            //- img.brand_logo(src='https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png' alt='Logo')
+            img.brand_logo(src='https://scontent.fcgp7-1.fna.fbcdn.net/v/t39.30808-6/343938094_3513580485631784_2921582903686129138_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHKsVAwymjozSXeU9fRAc364BquPAneDPHgGq48Cd4M8U1NQ-rebEHvqtymxqQR5ZBo_bBBQrV0r8h-Fhzdij0l&_nc_ohc=FP2lpRUCPQgAX_gHcy2&_nc_ht=scontent.fcgp7-1.fna&oh=00_AfAe5_QwvpJBNNfLqTPhKxyplpIfeAkDxQszTyYIPCLMwA&oe=64570B21' alt='Logo')
+        .d-flex.justify-content-center.form_container
+          form.update-user-settings
+            .input-group.mb-3
+              .input-group-append
+                span.input-group-text
+                  i.fas.fa-user
+              input.form-control(data-userid=`${user._id}`).input_user_name(type='text' name='' value=`${user.name}` placeholder='username')
+            .input-group.mb-2
+              .input-group-append
+                span.input-group-text
+                  i.fas.fa-mail-bulk
+              input.form-control.input_user_email(type='email' name='' value=`${user.email}` placeholder='email')
+            .d-flex.justify-content-center.mt-3.login_container
+                button.btn.login_btn.updateme_btn(type='button' name='button')
+                  | Update Settings
+
+        .mt-4
+            .d-flex.justify-content-center.links.links_forgot_password
+              a(href='#') Wanna Change password?
+              br
+
+            .forgot_passwindow
+              .input-group.mb-2
+                .input-group-append
+                  span.input-group-text
+                    i.fas.fa-key
+                input.form-control.input_user_pssword_old(type='password' name=''  placeholder='old password')
+              .input-group.mb-2
+                .input-group-append
+                  span.input-group-text
+                    i.fas.fa-key
+                input.form-control.input_user_pssword_new(type='password' name=''  placeholder='new password')
+              .d-flex.justify-content-center.mt-3.login_container
+                  button.btn.login_btn.update_password_btn(type='button' name='button')
+                    | Update password
+                    
