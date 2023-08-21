@@ -1,0 +1,19 @@
+extends base
+
+block content 
+  .form.form--table
+    .row.align-content-center
+      .col-md.d-flex.justify-content-center.form--el__branch
+        form.form.form__branch--search.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+          h2.text-center.form-text
+            | Please enter data and search About Branch
+          select#branch--id.form-select.form-control.m-3(name='branchs' required='')
+            option(selected='') Select Branch
+            each branch in branchs
+              option(value=`${branch._id}`)= branch.branchName
+          p.h5.mb-0.m-3.text-info Select Date
+          label.mb-0.m-3.form-label.text-wrap(for='date--from') From*:
+          input#date--from.form-control.m-3(type='date' required='')
+          label.mb-0.m-3.form-label.text-wrap(for='date--to') To*:
+          input#date--to.form-control.m-3(type='date')
+          a.m-3.btn.btn-primary.btn--branch__report Search!

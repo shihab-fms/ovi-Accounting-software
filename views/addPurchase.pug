@@ -1,0 +1,59 @@
+extends base
+
+block content 
+
+  .form.form--table
+    .row.align-content-center
+      .col-md.d-flex.justify-content-center.form--el__addPurchase
+        form.form.form__purchase--add.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+          h2.text-center.form-text
+            | Purchase: you must need a Branch, Date, one or more ledger
+          .purchase--header
+            .purchase--content
+              label.mb-0.m-3.form-label.text-wrap(for='date') From:
+              input#date.form-control.m-3(type='date' required='')
+            .purchase--content
+              label.mb-0.m-3.form-label.text-wrap(for='branch') Branch*
+              select#branch.form-select.form-control.m-3(name='branch')
+                option(selected='') Select Branch
+                each branch in branchs
+                  option(value=`${branch._id}`)=branch.name
+            .purchase--content
+              label.mb-0.m-3.form-label.text-wrap(for='ledger') ledger*
+              select#ledger.form-select.form-control.m-3(name='ledger')
+                option(selected='') Select ledger
+                each ledger in ledgers
+                  if(ledger.typeof[0].slug === 'supplier')
+                    option(value=`${ledger._id}`)=ledger.name
+          .purchase--body
+            .purchase--content.purchase--content__header
+              label.mb-0.m-1.form-label.text-wrap SL No*              
+              label.mb-0.m-1.form-label.text-wrap Item Name*
+              label.mb-0.m-1.form-label.text-wrap Unit*
+              label.mb-0.m-1.form-label.text-wrap Narration*
+              label.mb-0.m-1.form-label.text-wrap Quantity*
+              label.mb-0.m-1.form-label.text-wrap Rate* 
+              label.mb-0.m-1.form-label.text-wrap Total*
+            .data
+              .purchase--content.purchase--content__body
+                  label.mb-0.m-1.mb-3.sl.form-label.text-wrap(for='') 1
+                  //- items
+                  select#itemName.form-select.form-control.m-1.mb-3(style='width: 20%' name='ledgerName' required='')
+                    option(selected='') Select a item name
+                    each item in items
+                      option(value=`${item._id}`)=item.name
+                      //- unit
+                  select#unitName.form-select.form-control.m-1.mb-3(style='width: 15%' name='ledgerName' required='')
+                    option(selected='') Select a unit name
+                    each unit in units
+                      option(value=`${unit._id}`)=unit.name
+                  input#narration.form-control.m-1.mb-3(style='width: 28%' type='text' required='' placeholder='Comments')
+                  input#quantity.form-control.m-1.mb-3(style='width: 10%' type='number' required='' placeholder='Quantity')
+                  input#rate.form-control.m-1.mb-3(style='width: 10%' type='number' required='' placeholder='Rate')
+                  input#amount.ledger__amount.form-control.m-1.mb-3(style='width: 15%' type='number' required='' placeholder='Amount')
+            .summery--amount  
+              label.amount.mb-0.m-3.from-label.text-wrap Tk. 00000.00
+          button#add--more__item.m-3.btn.btn-primary.btn-sm Add
+          button#remove--last__item.m-3.btn.btn-danger.btn-sm Remove
+          button#add--purchase__submit.m-3.btn.btn-info.btn-sm Save
+

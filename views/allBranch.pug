@@ -1,0 +1,41 @@
+extends base
+
+block content 
+
+
+  .form.form--table.mb-3
+    .col-sm.d-flex.justify-content-center
+      .form--view.view--branch.form_el-allBranch
+        h2.text-center.form-text
+          | View: view Party history....
+        br.bg-gradient
+        .row  
+          .col-6
+            .input-group.input-group-sm.mb-3
+              .input-group-prepend
+                span#inputGroup-sizing-sm.input-group-text Search 
+              input.form-control.myInput(type='text' aria-label='Search' aria-describedby='inputGroup-sizing-sm')
+
+        .container-fluid
+          .row.view--header
+            .col-1.p-0
+              label.mb-0.m-1.form-label.text-wrap SL No#
+            .col-5.p-0
+              label.mb-0.form-label.text-wrap Name of Branch*
+            .col-3.p-0
+              label.mb-0.form-label.text-wrap Description*
+            .col.p-0
+              label.mb-0.form-label.text-wrap Action*
+          // Body
+          .myperent
+            each branch in branchs 
+              .row.view--data(data-branchid=`${branch._id}`)
+                .col-1.p-0
+                  label#sl.mb-0.form-label.text-wrap=branchs.indexOf(branch) + 1
+                .col-5.p-0
+                  label#branch.mb-0.form-label.text-wrap(data-branchid=`${branch._id}`)= branch.name
+                .col-3.p-0
+                  label#description.mb-0.form-label.text-wrap= branch.description
+                .col.p-0
+                  a.btn.btn-info.btn-edit.btn-sm Edit
+                  a.btn.btn-dark.btn-delete.btn-sm Delete

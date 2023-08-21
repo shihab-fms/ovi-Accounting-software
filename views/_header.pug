@@ -1,0 +1,141 @@
+
+.row.header
+  nav.navbar 
+    a(href='/')   
+      span.logo Alif Enterprise
+    if user
+      ul
+        // For Responsive
+        li.icon--res
+          a(href='')
+            i.fa.fa-bars
+        // Useable link in below
+        li.nav-link
+          a(href='#')
+            i.fa.fa-sitemap
+            span Branch
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.2s')
+                a(href='/addBranch')
+                  i.fa.fa-plus
+                  span Add Branch
+              li.list-item(style='transition: 0.4s')
+                a(href='/searchBranch')
+                  i.fa.fa-search
+                  span Search Branch
+              li.list-item(style='transition: 0.4s')
+                a(href='/allBranch')
+                  i.fa.fa-refresh
+                  span All Branch
+        li.nav-link
+          a(href='#')
+            i.fa.fa-dollar
+            span Payment
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.2s')
+                a(href='/addPayment')
+                  i.fa.fa-plus
+                  span Add Payment
+              li.list-item(style='transition: 0.4s')
+                a(href='/searchPayment')
+                  i.fa.fa-search
+                  span Search Payment
+        li.nav-link
+          a(href='#')
+            i.fa.fa-buysellads
+            span Purchase
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.2s')
+                a(href='/addPurchase')
+                  i.fa.fa-plus
+                  span Add Purchase
+              li.list-item(style='transition: 0.4s')
+                a(href='/searchPurchase')
+                  i.fa.fa-search
+                  span Search Purchase
+        li.nav-link
+          a(href='#')
+            i.fa.fa-diamond
+            span Ledger
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.2s')
+                a(href='/addLedger')
+                  i.fa.fa-plus
+                  span Add Ledger
+              li.list-item(style='transition: 0.4s')
+                a(href='/allLedger')
+                  i.fa.fa-search
+                  span Search Ledger
+        li.nav-link
+          a(href='#')
+            i.fa.fa-archive
+            span Others
+          .sub-menu
+            ul.list
+              li.list-item.units-list(style='transition: 0.2s')
+                a(href='')
+                  i.fa.fa-plus
+                  span Units
+              li.list-item.items-list(style='transition: 0.4s')
+                a(href='')
+                  i.fa.fa-search
+                  span Items
+        li.nav-link
+          a(href='#')
+            i.fa.fa-user-circle
+            span User
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.4s')
+                a(href='/settings')
+                  i.fa.fa-cog
+                  span Settings
+              li.list-item(style='transition: 0.4s')
+                a.nav__el--logout(href='')
+                  i.fa.fa-sign-out
+                  span Log Out
+
+    else 
+      ul
+        li.icon--res
+          a(href='')
+            i.fa.fa-bars
+        li.nav-link
+          a(href='#')
+            i.fa.fa-home
+            span Home
+        li.nav-link
+          a(href='#')
+            i.fa.fa-phone-square
+            span Contact
+        li.nav-link
+          a(href='#')
+            i.fa.fa-adn
+            span About
+        li.nav-link
+          a(href='#')
+            i.fa.fa-image
+            span Potfolio
+        li.nav-link
+          a(href='#')
+            i.fa.fa-feed
+            span Feedback
+        li.nav-link
+          a(href='#')
+            i.fa.fa-users
+            span Portal
+          .sub-menu
+            ul.list
+              li.list-item(style='transition: 0.2s')
+                a(href='./login')
+                  i.fa.fa-sign-in
+                  span Log In
+              li.list-item(style='transition: 0.4s')
+                a(href='./signup')
+                  i.fa.fa-user-circle
+                  span Sign Up
+      

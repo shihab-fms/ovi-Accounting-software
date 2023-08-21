@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js.js" defer></script>
+
+    <link rel="stylesheet" href="./../../css/style.css" type="text/css" />
+    <script src="./../js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row align-content-center print--content--body">
+        <div class="col-12 col-sm-1 d-flex justify-content-start">
+          <label class="Serial--no h6">${i + 1}</label>
+        </div>
+        <div class="col-12 col-sm-2 d-flex justify-content-start">
+          <label class="ledgerName h6">${el.ledgerName.name}</label>
+        </div>
+        <div class="col-12 col-sm-3 d-flex justify-content-start">
+          <label class="purpose h6">${el.purpose}</label>
+        </div>
+        <div class="col-12 col-sm-2 d-flex justify-content-start">
+          <label class="amount h6">${el.amount.toFixed(2)}</label>
+        </div>
+        <div class="col-12 col-sm-2 d-flex justify-content-start">
+          <label class="amount-cr h6">0.00</label>
+        </div>
+      </div>
+    </div>
+
+    <form
+      action=""
+      class="form form-group m-3 px-3 mt-5 b-2 border border-danger"
+    >
+      <h2 class="text-center form-text">
+        New Branch*: you must need a Name*, Type* of Party and others info.
+      </h2>
+      
+      <label for="date" class="mb-0 m-1 form-label text-wrap"
+        >From:</label
+      >
+      <input type="date" required id="from" class="form-control m-1" />
+    </form>
+    <!-- Add Branch -->
+    <!--
+    <div class="form form--table">
+      <div class="row align-content-center">
+        <div class="col-md d-flex justify-content-center form--el__addbranch">
+          <form
+            action=""
+            class="form form__add--branch form-group m-3 px-3 mt-5 b-2 border border-danger"
+          >
+            <h2 class="text-center form-text">
+              New Branch*: you must need a Name*, Type* of Party and others
+              info.
+            </h2>
+            <div class="branch--info">
+              <label for="branchname" class="mb-0 m-1 form-label text-wrap"
+                >Name of Branch*:</label
+              >
+              <input
+                type="text"
+                required
+                id="branchname"
+                class="form-control m-1"
+              />
+              <label for="address" class="mb-0 m-1 form-label text-wrap"
+                >Address of Branch*:</label
+              >
+              <input type="text" id="address" class="form-control m-1" />
+              <label for="type" class="mb-0 m-1 form-label text-wrap"
+                >Enlisted employees of Branch*:</label
+              >
+              <div class="row employees">
+                <select class="form-select form-control m-1" required id="type">
+                  <option selected>Select employees</option>
+                  <option value="put type id">Loop over here</option>
+                </select>
+                <button class="btn btn-danger">Enlist another</button>
+              </div>
+
+              <label for="descriptions" class="mb-0 m-1 form-label text-wrap"
+                >Descriptions:</label
+              >
+              <textarea
+                class="form-control"
+                id="descriptions"
+                cols="10"
+                rows="3"
+              ></textarea>
+            </div>
+            <button class="m-3 btn btn-info">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  -->
+
+    <!-- <div class="data">
+      <div class="purchase--content purchase--content__body">
+        <label class="mb-0 m-1 mb-3 form-label text-wrap" for="">1</label>
+        <select
+          class="form-select form-control m-1 mb-3"
+          id="itemName"
+          style="width: 20%"
+          name="ledgerName"
+          required=""
+        >
+          <option selected=""></option>
+          <option value="dfa">shihab</option>
+        </select>
+        <select
+          class="form-select form-control m-1 mb-3"
+          id="unitName"
+          style="width: 20%"
+          name="ledgerName"
+          required=""
+        >
+          <option selected=""></option>
+          <option value="dfa">unit</option>
+        </select>
+      </div>
+    </div>
+
+    <input
+      class="form-control m-1 mb-3"
+      id="narration"
+      style="width: 28%"
+      type="text"
+      required=""
+      placeholder="Comments"
+    /><input
+      class="form-control m-1 mb-3"
+      id="quantity"
+      style="width: 10%"
+      type="number"
+      required=""
+      placeholder="Quantity"
+    /><input
+      class="form-control m-1 mb-3"
+      id="rate"
+      style="width: 10%"
+      type="number"
+      required=""
+      placeholder="Rate"
+    /><input
+      class="ledger__amount form-control m-1 mb-3"
+      id="amount"
+      style="width: 15%"
+      type="number"
+      required=""
+      placeholder="Amount"
+    />
+
+    <div class="purchase--header">
+      <div class="purchase--content">
+        <label class="mb-0 m-3 form-label text-wrap" for="date">From:</label>
+        <input class="form-control m-3" id="date" type="date" required="" />
+      </div>
+      <div class="purchase--content">
+        <label class="mb-0 m-3 form-label text-wrap" for="branch">Branch*</label
+        ><select class="form-select form-control m-3" id="branch" name="branch">
+          <option selected="">Select Branch</option>
+        </select>
+      </div>
+      <div class="purchase--content gap-0 fa-fa-">
+        <label class="mb-0 m-3 form-label text-wrap" for="ledger">ledger*</label
+        ><select class="form-select form-control m-3" id="ledger" name="ledger">
+          <option selected="">Select ledger</option>
+        </select>
+      </div>
+    </div>
+     -->
+
+    <!-- Modal Windows -->
+    <!-- <button id="confirmButton">Confirm</button>
+
+    <div id="confirmationModal" class="modal">
+      <div class="modal-content">
+        <p>Are you sure you want to confirm?</p>
+        <button class="btn btn-primary" id="confirmModalButton">Confirm</button>
+        <button class="btn btn-danger" id="cancelModalButton">Cancel</button>
+      </div>
+    </div> -->
+
+    <!-- Add Ledger -->
+    <!-- <div class="form form--table">
+      <div class="row align-content-center">
+        <div class="col-md d-flex justify-content-center form--el__addledger">
+          <form
+            action=""
+            class="form form__add--ledger form-group m-3 px-3 mt-5 b-2 border border-danger"
+          >
+            <h2 class="text-center form-text">
+              New Party*: you must need a Name*, Type* of Party and others info.
+            </h2>
+            <div  class="ledger--info justify-content-end">
+              <label for="ledgername" class="mb-0 m-1 form-label text-wrap"
+                >Name of Party*:</label
+              >
+              <input type="text" required id="ledgername" class="form-control m-1" />
+              <label for="email" class="mb-0 m-1 form-label text-wrap"
+                >Email of Party:</label
+              >
+              <input type="text" id="email" class="form-control m-1" />
+              <label for="phone" class="mb-0 m-1 form-label text-wrap"
+                >Contact:</label
+              >
+              <input type="tel" required id="phone" class="form-control m-1" />
+              <label for="type" class="mb-0 m-1 form-label text-wrap"
+                >Type of Party*:</label
+              >
+              <select class="form-select form-control m-1" required id="type">
+                <option selected>Select Branch</option>
+                <option value="put type id">Loop over here</option>
+              </select>
+
+              <label for="descriptions" class="mb-0 m-1 form-label text-wrap"
+                >Descriptions:</label
+              >
+              <textarea
+                class="form-control"
+                id="descriptions"
+                cols="10"
+                rows="3"
+              ></textarea>
+            </div>
+            <button class="m-3 btn btn-info">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>  -->
+
+    <!-- print payment page -->
+    <!-- <div class="container-fluid">
+      <div class="row align-content-center print--title">
+        <div class="col-12 d-flex justify-content-center">
+          <h2 class="h2 mt-4">Alif Enterprise</h2>
+        </div>
+      </div>
+      <div class="row align-content-center print--address">
+        <h4 class="col-12 d-flex justify-content-center h6">
+          Modina Market(Third and Forth Floor), Muradpur, Chittagong.
+        </h4>
+      </div>
+      <div class="row align-content-center print--branch">
+        <p class="col-12 d-flex justify-content-center h5">Name of Branch</p>
+        <p class="col-12 d-flex justify-content-center h5">Name of Ledger</p>
+      </div>
+      <div class="row align-content-center print--header">
+        <h3 class="col-12 d-flex justify-content-center h3 print--type">
+          Party Payment
+        </h3>
+      </div>
+      <div class="row mt-2 align-content-center print--voucher">
+        <div class="col d-flex justify-content-around ">
+          <p>
+            From:<span class="v--date__from">12/02/2023 </span>To:
+            <span class="v--date__to">12/02/2023</span>
+          </p>
+        </div>
+      </div>
+      <div class="row align-content-center print--content--header">
+        <div class="col-1 d-flex justify-content-start">
+          <label for="Serial--no">SL No</label>
+        </div>
+        <div class="col-2 d-flex justify-content-start">
+          <label for="ledgerName">Date</label>
+        </div>
+        <div class="col-4 d-flex justify-content-start">
+          <label for="purpose">Narrations</label>
+        </div>
+        <div class="col-2 d-flex justify-content-start">
+          <label for="amount">Debit</label>
+        </div>
+        <div class="col d-flex justify-content-start">
+          <label for="amount">Credit</label>
+        </div>
+      </div>
+      <div class="row align-content-center print--content--body">
+        <div class="col-1 d-flex justify-content-start">
+          <label class="Serial--no">1</label>
+        </div>
+        <div class="col-2 d-flex justify-content-start">
+          <label class="ledgerName">101010</label>
+        </div>
+        <div class="col-4 d-flex justify-content-start">
+          <label class="purpose">Narrations</label>
+        </div>
+        <div class="col-2 d-flex justify-content-start">
+          <label class="amount">1000000</label>
+        </div>
+        <div class="col d-flex justify-content-start">
+          <label class="amount-cr">100000</label>
+        </div>
+      </div>
+      <div class="row align-content-center print--content--total">
+        <div class="col-1 d-flex justify-content-start"></div>
+        <div class="col-2 d-flex justify-content-start"></div>
+        <div class="col-4 d-flex justify-content-start">
+          <label>Total</label>
+        </div>
+        <div class="col-2 d-flex justify-content-start">
+          <label class="total">1000000</label>
+        </div>
+        <div class="col d-flex justify-content-start">
+          <label class="total-cr">100000</label>
+        </div>
+      </div>
+
+      <div class="row mt-5 align-content-center print--footer">
+        <div class="col-3 d-flex justify-content-start">
+          <label>
+            &nbsp;&nbsp;&nbsp;&nbsp;Prepared By&nbsp;&nbsp;&nbsp;&nbsp;
+          </label>
+        </div>
+        <div class="col-3 d-flex justify-content-start">
+          <label
+            >&nbsp;&nbsp;&nbsp;&nbsp;Checked By&nbsp;&nbsp;&nbsp;&nbsp;</label
+          >
+        </div>
+        <div class="col-3 d-flex justify-content-start">
+          <label
+            >&nbsp;&nbsp;&nbsp;&nbsp;Approved By&nbsp;&nbsp;&nbsp;&nbsp;</label
+          >
+        </div>
+      </div>
+    </div> -->
+
+    <!-- View Payment -->
+    <!-- 
+    <div class="form form--table">
+      <div class="row align-content-center">
+        <div class="col-md d-flex justify-content-center form--el__addPayment">
+          <form
+            action=""
+            class="form form__branch form-group m-3 px-3 mt-5 b-2 border border-danger"
+          >
+            <h2 class="text-center form-text">
+              Payment: you must need a Branch, Date, one or more ledger
+            </h2>
+            <div class="payment--header">
+              <div class="payment--content">
+                <label for="branch" class="mb-0 m-3 form-label text-wrap"
+                  >Branch*</label
+                >
+                <select
+                  class="form-select form-control m-3"
+                  name="branch"
+                  id="branch"
+                >
+                  <option selected>Select Branch</option>
+                  <option value="put branch id">Loop over here</option>
+                </select>
+              </div>
+              <div class="payment--content">
+                <label for="date" class="mb-0 m-3 form-label text-wrap"
+                  >From:</label
+                >
+                <input type="date" id="date" class="form-control m-3" />
+              </div>
+            </div>
+            <div class="payment--body">
+              <div class="payment--content payment--content__header">
+                <label class="mb-0 m-3 form-label text-wrap">SL No*</label>
+                <label class="mb-0 m-3 form-label text-wrap"
+                  >Ledger Name*</label
+                >
+                <label class="mb-0 m-3 form-label text-wrap">Narrations*</label>
+                <label class="mb-0 m-3 form-label text-wrap">Amount*</label>
+              </div>
+              <div class="data">
+                <div class="payment--content payment--content__body">
+                  <label for="" class="mb-0 m-3 form-label text-wrap">1</label>
+                  <select
+                    style="width: 30%"
+                    class="form-select form-control m-3"
+                    name="ledgerName"
+                    id="ledgerName"
+                    required
+                  >
+                    <option selected>Select a ledger name</option>
+                    <option value="put ledgerName id">
+                      Loop over here with ledger
+                    </option>
+                  </select>
+                  <input
+                    style="width: 32%"
+                    type="text"
+                    id="purpose"
+                    class="form-control m-3"
+                    required
+                    placeholder="put some comments"
+                  />
+                  <input
+                    style="width: 32%"
+                    type="button"
+                    id="amount"
+                    class="form-control m-3"
+                    required
+                    placeholder="Amount"
+                  />
+                </div>
+              </div>
+            </div>
+            <button class="m-3 mb-3 mt-3 btn btn-delete" id="add--more__ledger">Add</button>
+            <button class="m-3 btn btn-danger" id="remove--last-ledger">Remove</button>
+            <button class="m-3 btn btn-info">Save</button>
+          </form>
+        </div>
+      </div>
+    </div> 
+-->
+    <!-- Search view page -->
+    <!-- <div class="form form--table">
+      <div class="col-sm d-flex justify-content-center">
+        <div class="form--view view--ledger">
+          <h2 class="text-center form-text">
+            View: view Party history....
+          </h2>
+          <br class="bg-gradient" />
+          <div class="container-fluid">
+            <div class="row view--header">
+              <div class="col-1 p-0">
+                <label class="mb-0 m-1 form-label text-wrap">SL No#</label>
+              </div>
+              <div class="col-5 p-0">
+                <label class="mb-0 form-label text-wrap">Branch Name</label>
+              </div>
+              <div class="col-3 p-0">
+                <label class="mb-0 form-label text-wrap">Amount Tk.</label>
+              </div>
+              <div class="col p-0">
+                <label class="mb-0 form-label text-wrap">Action</label>
+              </div>
+            </div>
+ Body -->
+    <!--
+            <div class="row view--data">
+              <div class="col-1 p-0">
+                <label id="sl" class="mb-0 form-label text-wrap">1</label>
+              </div>
+              <div class="col-5 p-0">
+                <label id="branch" value="id" class="mb-0 form-label text-wrap">
+                  Excavation of Canel from Bahaddarhat Baraipara to Karnafully
+                  River
+                </label>
+              </div>
+              <div class="col-3 p-0">
+                <label id="amount" class="mb-0 form-label text-wrap"
+                  >1000000 Tk.</label
+                >
+              </div>
+              <div class="col p-0">
+                <button class="btn btn-info btn-1">Edit</button>
+                <button class="btn btn-primary btn-2">Print</button>
+                <button class="btn btn-dark btn-3">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+    <!-- Search Paymetn -->
+    <!-- <div class="form form--table">
+      <div class="col-sm d-flex justify-content-center">
+        <div class="form--view__payment">
+          <h2 class="text-center form-text">
+            Payment: view Payment history....
+          </h2>
+          <br class="bg-gradient" />
+          <div class="container-fluid">
+            <div class="row payment--view--header">
+              <div class="col-1 p-0">
+                <label class="mb-0 m-1 form-label text-wrap">SL No#</label>
+              </div>
+              <div class="col-2 p-0">
+                <label class="mb-0 m-1 form-label text-wrap">Date</label>
+              </div>
+              <div class="col-4 p-0">
+                <label class="mb-0 form-label text-wrap">Branch Name</label>
+              </div>
+              <div class="col-2 p-0">
+                <label class="mb-0 form-label text-wrap">Amount Tk.</label>
+              </div>
+              <div class="col p-0">
+                <label class="mb-0 form-label text-wrap">Action</label>
+              </div>
+            </div>
+           Body -->
+
+    <!-- <div class="row payment--view--Data">
+              <div class="col-1 p-0">
+                <label id="sl" class="mb-0 form-label text-wrap">1</label>
+              </div>
+              <div class="col-2 p-0">
+                <label id="date" class="mb-0 form-label text-wrap"
+                  >02-09-2023</label
+                >
+              </div>
+              <div class="col-4 p-0">
+                <label id="branch" value="id" class="mb-0 form-label text-wrap">
+                  Excavation of Canel from Bahaddarhat Baraipara to Karnafully
+                  River
+                </label>
+              </div>
+              <div class="col-2 p-0">
+                <label id="amount" class="mb-0 form-label text-wrap"
+                  >1000000 Tk.</label
+                >
+              </div>
+              <div class="col p-0">
+                <button class="btn btn-1">Edit</button>
+                <button class="btn btn-2">Print</button>
+                <button class="btn btn-3">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+    <!-- Add Payment -->
+    <!-- <div class="form form--table">
+      <div class="row align-content-center">
+        <div class="col-md d-flex justify-content-center form--el__addPayment">
+          <form
+            action=""
+            class="form form__branch form-group m-3 px-3 mt-5 b-2 border border-danger"
+          >
+            <h2 class="text-center form-text">
+              Payment: you must need a Branch, Date, one or more ledger
+            </h2>
+            <div class="payment--header">
+              <div class="payment--content">
+                <label for="branch" class="mb-0 m-3 form-label text-wrap"
+                  >Branch*</label
+                >
+                <select
+                  class="form-select form-control m-3"
+                  name="branch"
+                  id="branch"
+                >
+                  <option selected>Select Branch</option>
+                  <option value="put branch id">Loop over here</option>
+                </select>
+              </div>
+              <div class="payment--content">
+                <label for="date" class="mb-0 m-3 form-label text-wrap"
+                  >From:</label
+                >
+                <input type="date" id="date" class="form-control m-3" />
+              </div>
+            </div>
+            <div class="payment--body">
+              <div class="payment--content payment--content__header">
+                <label class="mb-0 m-3 form-label text-wrap"
+                  >SL No*</label
+                >
+                <label class="mb-0 m-3 form-label text-wrap"
+                  >Ledger Name*</label
+                >
+                <label class="mb-0 m-3 form-label text-wrap">Narrations*</label>
+                <label class="mb-0 m-3 form-label text-wrap">Amount*</label>
+              </div>
+              <div class="payment--content payment--content__body">
+                <label for="" class="mb-0 m-3 form-label text-wrap">1</label>
+                <select
+                  style="width: 30%"
+                  class="form-select form-control m-3"
+                  name="ledgerName"
+                  id="ledgerName"
+                  required
+                >
+                  <option selected>Select a ledger name</option>
+                  <option value="put ledgerName id">
+                    Loop over here with ledger
+                  </option>
+                </select>
+                <input
+                  style="width: 32%"
+                  type="text"
+                  id="purpose"
+                  class="form-control m-3"
+                  required
+                  placeholder="put some comments"
+                />
+                <input
+                  style="width: 32%"
+                  type="button"
+                  id="amount"
+                  class="form-control m-3"
+                  required
+                  placeholder="Amount"
+                />
+              </div>
+            </div>
+            <a class="m-3 btn btn-primary" id="add--more__ledger">Add</a>
+            <a class="m-3 btn btn-danger" id="remove--last-ledger">Remove</a>
+            <button class="m-3 btn btn-info">Save</button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- all Branch -->
+    <!-- <div class="form form--table">
+      <div class="row align-content-center">
+        <div class="col-md d-flex justify-content-center form--el__branch">
+          <form
+            action=""
+            class="form form__branch form-group m-3 px-3 mt-5 b-2 border border-danger"
+          >
+            <h2 class="text-center form-text">
+              Please enter data and search About Branch
+            </h2>
+            <select
+              class="form-select form-control m-3"
+              name="employees"
+              id="employees"
+            >
+              <option selected>Select Branch</option>
+              <option value="put branch id">Loop over here</option>
+            </select>
+            <p class="h5 mb-0 m-3 text-info">Select Date</p>
+            <label for="date--from" class="mb-0 m-3 form-label text-wrap"
+              >From:</label
+            >
+            <input type="date" id="date--from" class="form-control m-3" />
+            <label for="date--to" class="mb-0 m-3 form-label text-wrap"
+              >To:</label
+            >
+            <input type="date" id="date--to" class="form-control m-3" />
+            <button class="m-3 btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>

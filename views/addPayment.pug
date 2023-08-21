@@ -1,0 +1,41 @@
+extends base
+
+block content 
+
+  .form.form--table
+    .row.align-content-center
+      .col-md.d-flex.justify-content-center.form--el__addPayment
+        form.form.form__payment--add.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+          h2.text-center.form-text
+            | Payment: you must need a Branch, Date, one or more ledger
+          .payment--header
+            .payment--content
+              label.mb-0.m-3.form-label.text-wrap(for='branch') Branch*
+              select#branch.form-select.form-control.m-3(name='branch')
+                option(selected='') Select Branch
+                each branch in branchs
+                  option(value=`${branch._id}`)=branch.name
+            .payment--content
+              label.mb-0.m-3.form-label.text-wrap(for='date') From:
+              input#date.form-control.m-3(type='date' required='')
+          .payment--body
+            .payment--content.payment--content__header
+              label.mb-0.m-3.form-label.text-wrap SNo*              
+              label.mb-0.m-3.form-label.text-wrap(style='width: 30%') Ledger Name*
+              label.mb-0.m-3.form-label.text-wrap(style='width: 32%') Narrations*
+              label.mb-0.m-3.form-label.text-wrap(style='width: 32%') Amount*
+            .data
+              .payment--content.payment--content__body
+                  label.mb-0.m-3.form-label.text-wrap.slNo(for='') 1
+                  select#ledgerName.form-select.form-control.m-3(style='width: 30%' name='ledgerName' required='')
+                    option(selected='') Select a ledger name
+                    each ledger in ledgers
+                      option(value=`${ledger._id}`)=ledger.name
+                  input#purpose.form-control.m-3(style='width: 32%' type='text' required='' placeholder='put some comments')
+                  input#amount.ledger__amount.form-control.m-3(style='width: 32%' type='number' required='' placeholder='Amount')
+            .summery--amount  
+              label.amount.mb-0.m-3.from-label.text-wrap Tk. 00000.00
+          button#add--more__ledger.m-3.btn.btn-primary.btn-sm Add
+          button#remove--last__ledger.m-3.btn.btn-danger.btn-sm Remove
+          button#add--payment__submit.m-3.btn.btn-info.btn-sm Save
+

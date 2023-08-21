@@ -1,0 +1,42 @@
+extends base
+
+block content 
+
+
+  .form.form--table
+    .col-sm.d-flex.justify-content-center
+      .form--view.view--ledger.form_el-allpayment
+        h2.text-center.form-text
+          | View: view Party history....
+        br.bg-gradient
+        .row  
+          .col-6
+            .input-group.input-group-sm.mb-3
+              .input-group-prepend
+                span#inputGroup-sizing-sm.input-group-text Search 
+              input.form-control.myInput(type='text' aria-label='Search' aria-describedby='inputGroup-sizing-sm')
+
+        .container-fluid
+          .row.view--header
+            .col-1.p-0
+              label.mb-0.m-1.form-label.text-wrap SL No#
+            .col-5.p-0
+              label.mb-0.form-label.text-wrap Name of Party*
+            .col-3.p-0
+              label.mb-0.form-label.text-wrap Types of Party*
+            .col.p-0
+              label.mb-0.form-label.text-wrap Action*
+          // Body
+          .myperent
+            each party in ledgers 
+              .row.view--data
+                .col-1.p-0
+                  label#sl.mb-0.form-label.text-wrap=ledgers.indexOf(party) + 1
+                .col-5.p-0
+                  label#ledger.mb-0.form-label.text-wrap(data-ledgerid=`${party._id}`)= party.name
+                .col-3.p-0
+                  label#typeOf.mb-0.form-label.text-wrap(data-ledgerid=`${party.typeof[0]._id}`)=party.typeof[0].slug
+                .col.p-0
+                  a.btn.btn-info.btn-edit.btn-sm Edit
+                  a.btn.btn-primary.btn-search.btn-sm Search
+                  a.btn.btn-dark.btn-delete.btn-sm Delete

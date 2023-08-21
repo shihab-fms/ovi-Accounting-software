@@ -1,0 +1,27 @@
+extends base
+
+block content
+
+  .form.form--table
+    .row.align-content-center
+      .col-md.d-flex.justify-content-center.form--el__addledger
+        form.form.form__add--ledger.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+          h2.text-center.form-text
+            | New Party*: you must need a Name*, Type* of Party and others info.
+          .ledger--info
+            label.mb-0.m-1.form-label.text-wrap(for='ledgername') Name of Party*:
+            input#ledgername.form-control.m-1(type='text' required='')
+            label.mb-0.m-1.form-label.text-wrap(for='email') Email of Party:
+            input#email.form-control.m-1(type='text')
+            label.mb-0.m-1.form-label.text-wrap(for='phone') Contact:
+            input#phone.form-control.m-1(type='tel' required='')
+            label.mb-0.m-1.form-label.text-wrap(for='address') Address:
+            input#address.form-control.m-1(type='text' required='')
+            label.mb-0.m-1.form-label.text-wrap(for='type') Type of Party*:
+            select#type.form-select.form-control.m-1(required='')
+              option(selected='') Select type
+              each type in typeOf 
+                option(value=`${type._id}`)=type.name
+            label.mb-0.m-1.form-label.text-wrap(for='descriptions') Descriptions:
+            textarea#descriptions.form-control(cols='10' rows='3')
+          button#addledger.m-3.btn.btn-info Save

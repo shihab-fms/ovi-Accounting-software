@@ -1,0 +1,44 @@
+extends base
+
+block content 
+
+  .form.form--table
+    .col-sm.d-flex.justify-content-center
+      .form--search__purchase.form--view
+        h2.text-center.form-text
+          | Purchase: view purchase history....
+        br.bg-gradient
+        .row  
+          .col-6
+            .input-group.input-group-sm.mb-3
+              .input-group-prepend
+                span#inputGroup-sizing-sm.input-group-text Search 
+              input.form-control.myInput(type='text' aria-label='Search' aria-describedby='inputGroup-sizing-sm')
+        .container-fluid
+          .row.purchase--view--header.view--header
+            .col-1.p-0
+              label.mb-0.m-1.form-label.text-wrap SL No#
+            .col-2.p-0
+              label.mb-0.m-1.form-label.text-wrap Date
+            .col-4.p-0
+              label.mb-0.form-label.text-wrap Branch Name
+            .col-2.p-0
+              label.mb-0.form-label.text-wrap Amount Tk.
+            .col.p-0
+              label.mb-0.form-label.text-wrap Action
+          // Body
+          .myperent
+            each purchase in purchases
+              .row.purchase--view--Data.view--data(data-purchaseid=`${purchase._id}`)
+                .col-1.p-0
+                  label#sl.mb-0.p-1.form-label.text-wrap=purchases.indexOf(purchase) + 1
+                .col-2.p-0
+                  label#date.mb-0.form-label.text-wrap=purchase.date
+                .col-4.p-0
+                  label#branch.mb-0.form-label.text-wrap(data-branchid=`${purchase.branch._id}`)=purchase.branch.name
+                .col-2.p-0
+                  label#amount.mb-0.form-label.text-wrap=`${purchase.summeryAmount} Tk.`
+                .col.p-0
+                  a.btn.btn-edit.btn-info.btn-sm Edit
+                  a.btn.btn-print.btn-primary.btn-sm Print
+                  a.btn.btn-delete.btn-dark.btn-sm Delete

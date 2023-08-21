@@ -1,0 +1,15 @@
+extends base
+
+block content 
+
+  .row
+    .col-md.d-flex.justify-content-center    
+      form.form--login.col-md-6.form-group.m-3.mt-5.b-2.border.border-primary(action='')
+        h2.text-center.form-text Assalamualikum! Welcome to Alif Enterprise
+        h2.text-center.form-text please login to continue...
+        label.mb-0.m-3.form__label(for='email') Email:
+        input#email.form-control.m-3(type='email' name='email' placeholder='example@gmail.com' required='')
+        label.mb-0.m-3.form__label(for='password') Password:
+        input#password.form-control.m-3(type='password' name='password' placeholder='*********' minlength='8' required='')
+        button.m-3.btn.btn-danger Login
+        a.form-text.link-info(href='./signup') Don&apos;t have account. Please sign Up

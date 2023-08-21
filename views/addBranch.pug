@@ -1,0 +1,26 @@
+extends base
+
+block content 
+
+  .form.form--table
+    .row.align-content-center
+      .col-md.d-flex.justify-content-center.form--el__addbranch
+        form.form.form__add--branch.form-group.m-3.px-3.mt-5.b-2.border.border-danger(action='')
+          h2.text-center.form-text
+            | New Branch*: you must need a Name*, Address*, Employees* of Branch and others
+            | info.
+          .branch--info
+            label.mb-0.m-1.form-label.text-wrap(for='branchname') Name of Branch*:
+            input#branchname.form-control.m-1(type='text' required='')
+            label.mb-0.m-1.form-label.text-wrap(for='address') Address of Branch*:
+            input#address.form-control.m-1(type='text' required='')
+            label.mb-0.m-1.form-label.text-wrap(for='type') Enlisted employees of Branch*:
+            .row.employees
+              select#employee.form-select.form-control.m-1(required='')
+                option(selected='') Select employees
+                each user in users
+                  option(value=`${user._id}`)=user.name
+              button.btn.btn-danger.btn-add-employees Enlist more
+            label.mb-0.m-1.form-label.text-wrap(for='descriptions') Descriptions:
+            textarea#descriptions.form-control(cols='10' rows='3')
+          button.m-3.btn.btn-info.btn-save Save

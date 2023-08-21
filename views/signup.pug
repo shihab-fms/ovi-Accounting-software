@@ -1,0 +1,21 @@
+extends base
+
+block content 
+
+  .row
+    .col-md.d-flex.justify-content-center
+      form.col-md-6.form-group.m-3.mt-5.b-2.border.border-primary(action='')
+        h2.text-center.form-text
+          | please give your information to create account...
+        label.mb-0.m-2.form__label(for='name') Name:
+        input#name.form-control.m-2(type='text' name='name' placeholder='Enter your name' required='')
+        label.mb-0.m-2.form__label(for='email') Email:
+        input#email.form-control.m-2(type='email' name='email' placeholder='example@gmail.com' required='')
+        label.mb-0.m-2.form__label(for='password') Password:
+        input#password.form-control.m-2(type='password' name='password' placeholder='*********' minlength='8' required='')
+        label.mb-0.m-2.form__label(for='passwordConfirm') Password Confirm:
+        input#passwordConfirm.form-control.m-2(type='password' name='passwordConfirm' placeholder='*********' minlength='8' required='')
+        label.mb-0.m-2.form__label(for='dateOfBirth') Date Of Birth:
+        input#dateOfBirth.form-control.m-2(type='date' name='dateOfBirth' placeholder='dateOfBirth' required='')
+        button.m-3.btn.btn-danger Sign Up
+        a.form-text.link-info(href='./login') Already have account. Please login

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+
+    <script src="./../js/branch.js" defer></script>
+  </head>
+  <body>
+    <form action="" class="form-group m-3 mt-5 b-2 border border-primary">
+      <h2 class="text-center form-text">please login to continue...</h2>
+      <label class="mb-0 m-3 form__label" for="branchName"
+        >Name of Branch:</label
+      >
+      <input
+        type="text"
+        name="name"
+        placeholder="Branch Name"
+        id="branchName"
+        class="form-control m-3"
+      />
+
+      <label class="mb-0 m-3 form__label" for="slug"
+        >Slag name of Branch:</label
+      >
+      <input
+        type="text"
+        name="slug"
+        placeholder="slug Name"
+        id="slug"
+        class="form-control m-3"
+      />
+
+      <label class="mb-0 m-3 form__label" for="branchAddress"
+        >Address of Branch:</label
+      >
+      <input
+        type="text"
+        name="address"
+        placeholder="Address of the Branch"
+        id="branchAddress"
+        class="form-control m-3"
+      />
+
+      <!-- List of Employees -->
+
+      <label class="mb-0 m-3 form__label" for="employees"
+        >Employees of Branch:</label
+      >
+      <!-- Lists by Name and Role -->
+      <div
+        class="container updateEmployee form-group mt-5 border border-warning"
+      >
+        <div class="col-sm">
+          <label class="mb-0 m-3 form__label" for="employeeId"
+            >Name of Employees:</label
+          >
+          <input type="text" id="employeeId" class="form-control m-3" />
+
+          <label class="mb-0 m-3 form__label" for="employeeRole"
+            >Role of Employees:</label
+          >
+          <input type="text" id="employeeRole" class="form-control m-3" />
+          <label class="mb-0 m-3 form__label" for="employeeId"
+            >Name of Employees:</label
+          >
+          <input type="text" id="employeeId" class="form-control m-3" />
+
+          <label class="mb-0 m-3 form__label" for="employeeRole"
+            >Role of Employees:</label
+          >
+          <input type="text" id="employeeRole" class="form-control m-3" />
+        </div>
+      </div>
+
+      <!-- Add Another Employee -->
+      <div class="row m-1 row__employees--branch">
+        <input
+          type="button"
+          id="anotherEmployee"
+          value="Add Another"
+          class="btn btn-dark form-Control"
+        />
+      </div>
+
+      <label class="mb-0 m-3 form__label" for="description"
+        >Description of Branch:</label
+      >
+      <textarea
+        class="form-control m-3"
+        name="description"
+        id="description"
+        placeholder="Description of Branch"
+        cols="30"
+        rows="5"
+      ></textarea>
+
+      <button class="m-3 btn btn-danger">Create Branch</button>
+    </form>
+  </body>
+</html>
